@@ -3,6 +3,7 @@ import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import { LanguageProvider } from "../context/LanguageContext";
+import NotificationBell from "../components/NotificationBell";
 
 export default function Layout() {
   return (
@@ -11,6 +12,7 @@ export default function Layout() {
         <Header />
         <Outlet />
         <Footer />
+        <NotificationBell />
       </div>
     </LanguageProvider>
   );

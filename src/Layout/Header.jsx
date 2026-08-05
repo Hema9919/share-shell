@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ShellLogo from "../assets/ShellLogo";
 import { useLanguage } from "../context/LanguageContext";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { lang, toggleLanguage, t } = useLanguage();
@@ -12,7 +13,9 @@ export default function Header() {
       <div className="shell-header">
         <div className="header-left">
           <div className="header-logo-wrapper">
+            <Link to={"product-verification"}>
             <ShellLogo width={46} height={46} />
+            </Link>
           </div>
           <span className="header-title-mobile non-link">
             {t.headerTitleMobile}
@@ -48,10 +51,7 @@ export default function Header() {
           className="mobile-drawer-overlay"
           onClick={() => setDrawerOpen(false)}
         >
-          <div
-            className="mobile-drawer"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
               <ShellLogo width={36} height={36} />
               <button
@@ -62,14 +62,10 @@ export default function Header() {
               </button>
             </div>
             <div className="drawer-item non-link">
-              {t.headerTitleDesktop}
+              <Link to={"product-verification"}>{t.headerTitleDesktop}</Link>
             </div>
-            <div className="drawer-item non-link">
-              {t.siteInformation}
-            </div>
-            <div className="drawer-item non-link">
-              {t.connectWithUs}
-            </div>
+            <div className="drawer-item non-link">{t.siteInformation}</div>
+            <div className="drawer-item non-link">{t.connectWithUs}</div>
           </div>
         </div>
       )}
